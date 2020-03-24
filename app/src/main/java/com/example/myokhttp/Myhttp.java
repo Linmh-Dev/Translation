@@ -1,7 +1,10 @@
 package com.example.myokhttp;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import androidx.lifecycle.ViewModelProvider;
 
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -98,9 +101,7 @@ public class Myhttp extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-
-       String content = s;
-       translationtext=content.split(",");
+      MyViewModel.getLiveData().setValue(s.split(","));
 
     }
 
